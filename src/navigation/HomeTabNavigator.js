@@ -17,10 +17,10 @@ const HomeTabNavigator = () => {
 				},
 
 				style: {
-					height: 60,
+					height: 75,
 					backgroundColor: "#333",
-					paddingTop: 5,
-					paddingBottom: 5,
+					paddingTop: 10,
+					paddingBottom: 18,
 				},
 			}}
 		>
@@ -47,7 +47,7 @@ const HomeTabNavigator = () => {
 				component={HomeScreen}
 				options={{
 					tabBarIcon: ({ color }) => (
-						<FontAwesome5 name="accusoft" style={{ marginLeft: -10 }} size={25} color={color} />
+						<FontAwesome5 name="accusoft" size={25} color={color} />
 					),
 				}}
 			/>

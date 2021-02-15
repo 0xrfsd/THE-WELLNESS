@@ -1,14 +1,108 @@
 import React from "react";
-import { ScrollView, Image, ImageBackground, Pressable, Text, View } from "react-native";
+import { ScrollView, Image, ImageBackground, Pressable, TouchableOpacity, Text, View } from "react-native";
 import styles from "./styles";
 import { Fontisto } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import {Container} from './scroll';
 
+import Casa from '../../../assets/images/casa.jpg';
+
+let id = 1;
+
+const houses = [
+	{	
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+	{
+		"img": Casa,
+		"key": String(Math.random()),
+		"name": "Casa Tucupí",
+		"rate": "5.0",
+		"price": 256,
+		"desc": "A perfect house!"
+	},
+]
+
 const HomeScreen = () => {
 	const navigation = useNavigation();
-
 	return (
 		<ScrollView>
 			<Pressable
@@ -28,77 +122,50 @@ const HomeScreen = () => {
 					justifyContent: "center" }}
 				source={require("../../../assets/images/background.jpg")}
 			>
-				<View style={{ marginLeft: '30%', marginTop: '10%' }}>
+				<View style={{ marginLeft: '28%', marginTop: '10%' }}>
 
 				<Text style={styles.title}> Explore</Text>
 				<Text style={styles.title}>A Bahía</Text>
 
-				<Pressable style={styles.button}>
+				<Pressable onPress={() => navigation.navigate("Destination Search")} style={styles.button}>
 					<Text style={styles.buttonText}>Acomodações Incríveis!</Text>
 				</Pressable>
 
 				</View>
 			</ImageBackground>
-			<Text style={{ textAlign: 'left', fontSize: 30, marginLeft: 20, marginTop: 40, marginBottom: 20 }}>Acomodações em Trancoso na Bahía</Text>					
+			<Text style={{ textAlign: 'left', fontSize: 24, marginLeft: 20, marginTop: 20, marginTop: 40, marginBottom: 20 }}>Acomodações em Trancoso na Bahía</Text>					
 			<Container style={{ paddingLeft: 20, paddingRight: 20, flexDirection: 'row'}}>
-			<View style={{ marginRight: 15 }}>
-						<Image source={require("../../../assets/images/casa.jpg")} style={{ height: 200, width: 250, borderRadius: 20 }}></Image>
-						<View style={{ flexDirection: 'row' }}>
-						<Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: 'left', marginTop: 10 }}>Casa Tucupí</Text>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10, marginLeft: 'auto'}}>5.00</Text>
-						</View>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10 }}>R$278,00</Text>
-						<Text style={{ fontSize: 16, textAlign: 'left', marginTop: 10 }}>Uma bela propríedade</Text>
+				{houses.map((house) => (
+					<View key={id++} style={{ marginRight: 15 }}>
+											<TouchableOpacity onPress={() => navigation.navigate("House", {
+						itemId: 86,
+						otherParam: 'anything you want here',
+					  })}>
+						<Image source={house.img} style={{ height: 200, width: 250, borderRadius: 20, marginBottom: 10 }} />
+						<Text>{house.name}</Text>
+						<Text>{house.rate}</Text>
+						<Text>{house.price}</Text>
+						<Text>{house.desc}</Text>
+					</TouchableOpacity>
 					</View>
-					<View style={{ marginRight: 15 }}>
-						<Image source={require("../../../assets/images/casaa.jpg")} style={{ height: 200, width: 250, borderRadius: 20 }}></Image>
-						<View style={{ flexDirection: 'row' }}>
-						<Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: 'left', marginTop: 10 }}>Casa Tucumã</Text>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10, marginLeft: 'auto'}}>5.00</Text>
-						</View>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10 }}>R$159,00</Text>
-						<Text style={{ fontSize: 16, textAlign: 'left', marginTop: 10 }}>Um grande chalé!</Text>
-					</View>
-					<View style={{ marginRight: 35 }}>
-						<Image source={require("../../../assets/images/casb.jpg")} style={{ height: 200, width: 250, borderRadius: 20 }}></Image>
-						<View style={{ flexDirection: 'row' }}>
-						<Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: 'left', marginTop: 10 }}>Casa Taparé</Text>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10, marginLeft: 'auto'}}>5.00</Text>
-						</View>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10 }}>R$178,42</Text>
-						<Text style={{ fontSize: 16, textAlign: 'left', marginTop: 10 }}>Uma bela reserva natural</Text>
-					</View>
-					
+				))}
 			</Container>
-			<Text style={{ textAlign: 'left', fontSize: 30, marginLeft: 20, marginTop: 40, marginBottom: 20 }}>Acomodações que amamos</Text>					
+			<Text style={{ textAlign: 'left', fontSize: 24, marginLeft: 20, marginTop: 20, marginTop: 40, marginBottom: 20 }}>Acomodações em Trancoso na Bahía</Text>					
 			<Container style={{ paddingLeft: 20, paddingRight: 20, flexDirection: 'row'}}>
-			<View style={{ marginRight: 15 }}>
-						<Image source={require("../../../assets/images/a.jpg")} style={{ height: 200, width: 250, borderRadius: 20 }}></Image>
-						<View style={{ flexDirection: 'row' }}>
-						<Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: 'left', marginTop: 10 }}>Casa Subisidio</Text>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10, marginLeft: 'auto'}}>5.00</Text>
-						</View>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10 }}>R$278,00</Text>
-						<Text style={{ fontSize: 16, textAlign: 'left', marginTop: 10 }}>Uma bela propríedade</Text>
+				{houses.map((house) => (
+					<TouchableOpacity onPress={() => navigation.navigate("House", {
+						itemId: 86,
+						otherParam: 'anything you want here',
+					  })}>
+					<View key={house.key} style={{ marginRight: 15 }}>
+						<Image source={house.img} style={{ height: 200, width: 250, borderRadius: 20, marginBottom: 10 }} />
+						<Text>{house.name}</Text>
+						<Text>{house.rate}</Text>
+						<Text>{house.price}</Text>
+						<Text>{house.desc}</Text>
 					</View>
-					<View style={{ marginRight: 15 }}>
-						<Image source={require("../../../assets/images/b.jpg")} style={{ height: 200, width: 250, borderRadius: 20 }}></Image>
-						<View style={{ flexDirection: 'row' }}>
-						<Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: 'left', marginTop: 10 }}>Casa Socialismo</Text>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10, marginLeft: 'auto'}}>5.00</Text>
-						</View>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10 }}>R$159,00</Text>
-						<Text style={{ fontSize: 16, textAlign: 'left', marginTop: 10 }}>Um grande chalé!</Text>
-					</View>
-					<View style={{ marginRight: 35 }}>
-						<Image source={require("../../../assets/images/c.jpg")} style={{ height: 200, width: 250, borderRadius: 20 }}></Image>
-						<View style={{ flexDirection: 'row' }}>
-						<Text style={{ fontSize: 22, fontWeight: 'bold', textAlign: 'left', marginTop: 10 }}>Casa Anarcal</Text>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10, marginLeft: 'auto'}}>5.00</Text>
-						</View>
-						<Text style={{ fontSize: 22, textAlign: 'left', marginTop: 10 }}>R$178,42</Text>
-						<Text style={{ fontSize: 16, textAlign: 'left', marginTop: 10 }}>Uma bela reserva natural</Text>
-					</View>
+					</TouchableOpacity>
+				))}
 			</Container>
 			<View style={{ height: 70, justifyContent: 'center', alignItems: 'center' }}>
 				<Text style={{ textAlign: 'center', opacity: .5 }}>Wellness House Rental ®</Text>
