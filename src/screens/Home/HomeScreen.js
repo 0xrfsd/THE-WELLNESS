@@ -4,17 +4,15 @@ import styles from "./styles";
 import { Fontisto } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-import {Container} from './scroll';
+import { Container } from './scroll';
 
 import Casa from '../../../assets/images/casa.jpg';
 
-let id = 1;
-
 const houses = [
-	{	
+	{
 		"img": Casa,
 		"key": String(Math.random()),
-		"name": "Casa Tucupí",
+		"name": "Casa A",
 		"rate": "5.0",
 		"price": 256,
 		"desc": "A perfect house!"
@@ -22,7 +20,7 @@ const houses = [
 	{
 		"img": Casa,
 		"key": String(Math.random()),
-		"name": "Casa Tucupí",
+		"name": "Casa B",
 		"rate": "5.0",
 		"price": 256,
 		"desc": "A perfect house!"
@@ -30,7 +28,7 @@ const houses = [
 	{
 		"img": Casa,
 		"key": String(Math.random()),
-		"name": "Casa Tucupí",
+		"name": "Casa C",
 		"rate": "5.0",
 		"price": 256,
 		"desc": "A perfect house!"
@@ -115,55 +113,59 @@ const HomeScreen = () => {
 				</Text>
 			</Pressable>
 			<ImageBackground
-				style={{ height: 500,
+				style={{
+					height: 500,
 					width: "100%",
 					marginTop: -10,
 					resizeMode: "cover",
-					justifyContent: "center" }}
+					justifyContent: "center"
+				}}
 				source={require("../../../assets/images/background.jpg")}
 			>
 				<View style={{ marginLeft: '28%', marginTop: '10%' }}>
 
-				<Text style={styles.title}> Explore</Text>
-				<Text style={styles.title}>A Bahía</Text>
+					<Text style={styles.title}> Explore</Text>
+					<Text style={styles.title}>A Bahía</Text>
 
-				<Pressable onPress={() => navigation.navigate("Destination Search")} style={styles.button}>
-					<Text style={styles.buttonText}>Acomodações Incríveis!</Text>
-				</Pressable>
+					<Pressable onPress={() => navigation.navigate("Destination Search")} style={styles.button}>
+						<Text style={styles.buttonText}>Acomodações Incríveis!</Text>
+					</Pressable>
 
 				</View>
 			</ImageBackground>
-			<Text style={{ textAlign: 'left', fontSize: 24, marginLeft: 20, marginTop: 20, marginTop: 40, marginBottom: 20 }}>Acomodações em Trancoso na Bahía</Text>					
-			<Container style={{ paddingLeft: 20, paddingRight: 20, flexDirection: 'row'}}>
+			<Text style={{ textAlign: 'left', fontSize: 24, marginLeft: 20, marginTop: 20, marginTop: 40, marginBottom: 20 }}>Acomodações em Trancoso na Bahía</Text>
+			<Container style={{ paddingLeft: 20, paddingRight: 20, flexDirection: 'row' }}>
 				{houses.map((house) => (
-					<View key={id++} style={{ marginRight: 15 }}>
-											<TouchableOpacity onPress={() => navigation.navigate("House", {
-						itemId: 86,
-						otherParam: 'anything you want here',
-					  })}>
-						<Image source={house.img} style={{ height: 200, width: 250, borderRadius: 20, marginBottom: 10 }} />
-						<Text>{house.name}</Text>
-						<Text>{house.rate}</Text>
-						<Text>{house.price}</Text>
-						<Text>{house.desc}</Text>
-					</TouchableOpacity>
+					<View key={house.key} style={{ marginRight: 15 }}>
+						<TouchableOpacity onPress={() => navigation.navigate("House", {
+							name: house.name,
+							rate: house.rate,
+							price: house.price,
+							desc: house.desc
+						})}>
+							<Image source={house.img} style={{ height: 200, width: 250, borderRadius: 20, marginBottom: 10 }} />
+							<Text>{house.name}</Text>
+							<Text>{house.rate}</Text>
+							<Text>{house.price}</Text>
+							<Text>{house.desc}</Text>
+						</TouchableOpacity>
 					</View>
 				))}
 			</Container>
-			<Text style={{ textAlign: 'left', fontSize: 24, marginLeft: 20, marginTop: 20, marginTop: 40, marginBottom: 20 }}>Acomodações em Trancoso na Bahía</Text>					
-			<Container style={{ paddingLeft: 20, paddingRight: 20, flexDirection: 'row'}}>
+			<Text style={{ textAlign: 'left', fontSize: 24, marginLeft: 20, marginTop: 20, marginTop: 40, marginBottom: 20 }}>Acomodações em Trancoso na Bahía</Text>
+			<Container style={{ paddingLeft: 20, paddingRight: 20, flexDirection: 'row' }}>
 				{houses.map((house) => (
 					<TouchableOpacity onPress={() => navigation.navigate("House", {
 						itemId: 86,
 						otherParam: 'anything you want here',
-					  })}>
-					<View key={house.key} style={{ marginRight: 15 }}>
-						<Image source={house.img} style={{ height: 200, width: 250, borderRadius: 20, marginBottom: 10 }} />
-						<Text>{house.name}</Text>
-						<Text>{house.rate}</Text>
-						<Text>{house.price}</Text>
-						<Text>{house.desc}</Text>
-					</View>
+					})}>
+						<View key={house.key} style={{ marginRight: 15 }}>
+							<Image source={house.img} style={{ height: 200, width: 250, borderRadius: 20, marginBottom: 10 }} />
+							<Text>{house.name}</Text>
+							<Text>{house.rate}</Text>
+							<Text>{house.price}</Text>
+							<Text>{house.desc}</Text>
+						</View>
 					</TouchableOpacity>
 				))}
 			</Container>

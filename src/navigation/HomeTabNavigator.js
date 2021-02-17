@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Fontisto, FontAwesome5 } from "@expo/vector-icons";
 import HomeScreen from '../screens/Home/HomeScreen';
+import FirstScreen from '../screens/First/FirstScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,7 @@ const HomeTabNavigator = () => {
 				},
 
 				style: {
-					height: 75,
+					height: 70,
 					backgroundColor: "#333",
 					paddingTop: 10,
 					paddingBottom: 18,
@@ -35,7 +36,7 @@ const HomeTabNavigator = () => {
 			/>
 			<Tab.Screen
 				name="Saved"
-				component={HomeScreen}
+				component={FirstScreen}
 				options={{
 					tabBarIcon: ({ color }) => (
 						<FontAwesome5 name="heart" size={25} color={color} />

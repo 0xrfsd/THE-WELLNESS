@@ -5,10 +5,14 @@ import { useNavigation } from "@react-navigation/native";
 
 const HouseScreen = ({ route }) => {
 	const navigation = useNavigation();
-	const { itemId, otherParam } = route.params;
+	const { id, name, rate, price, desc } = route.params;
 	return (
 		<ScrollView>
-      <Text style={{ textAlign: 'center' }}>{itemId}</Text>
+      <Text style={{ textAlign: 'center' }}>{id}</Text>
+      <Text style={{ textAlign: 'center' }}>{name}</Text>
+      <Text style={{ textAlign: 'center' }}>{rate}</Text>
+      <Text style={{ textAlign: 'center' }}>{price}</Text>
+      <Text style={{ textAlign: 'center' }}>{desc}</Text>
 		</ScrollView>
 	);
 };
