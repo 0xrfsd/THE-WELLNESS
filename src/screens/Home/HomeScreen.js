@@ -1,4 +1,5 @@
 import React from "react";
+import AsyncStorage from '@react-native-community/async-storage';
 import { ScrollView, Image, ImageBackground, Pressable, TouchableOpacity, Text, View } from "react-native";
 import styles from "./styles";
 import { Fontisto } from "@expo/vector-icons";
@@ -99,7 +100,36 @@ const houses = [
 	},
 ]
 
+
 const HomeScreen = () => {
+
+	const getData = async () => {
+		try {
+		  const value = await AsyncStorage.getItem('@storage_Key')
+		  if (value) {
+			setData(value)
+			alert(value)
+		  }
+		} catch (e) {
+		  // error reading value
+		}
+	  }
+	
+
+	// async function retrieveData() {
+	// 	try {
+	// 		const value = await AsyncStorage.getItem('@isLogged:key');
+	// 		if (value) {
+	// 		  // We have data!!
+	// 		  alert(value);
+	// 		}
+	// 	  } catch (error) {
+	// 		alert(error);
+	// 	  }
+	// };
+
+	// retrieveData();
+
 	const navigation = useNavigation();
 	return (
 		<ScrollView>
