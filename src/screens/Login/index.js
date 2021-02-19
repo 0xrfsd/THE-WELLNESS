@@ -4,36 +4,34 @@ import { ScrollView, Image, TouchableOpacity, TextInput, Text, View } from "reac
 import { useNavigation } from "@react-navigation/native";
 // import LoginImage from '../../../assets/images/bh.jpeg'
 
-const LoginScreen = ({ }) => {
-
-	const [logged, isLogged] = useState(0);
-
-	function isLoggedUser() {
-
-		storeData();
-
-		// asyncStorage jwt {user: user.id} // token
-
-		// fetch post(login) = { body }
-
-	}
-
-	const storeData = async (logged) => {
-
-		isLogged(true);
-
-		try {
-		  await AsyncStorage.setItem('@storage_Key', 'fjdsfsdof');
-		navigation.navigate('Home');
-		} catch (e) {
-		  alert(e);
-		}
-	  }
-
-	// onPress={() => navigation.navigate('Home')}
-	// onPress{loggedUser}
+const LoginScreen = () => {
 
 	const navigation = useNavigation();
+
+	/**
+	 * Variavel de Login
+	 * Setar se há vinculo de login
+	 * 
+	 */
+	
+	const [logged, isLogged] = useState();
+
+	async function isLoggedUser() {
+		alert(logged === undefined)
+		if (logged === undefined) {
+			isLogged('teaaeee');
+			await AsyncStorage.setItem('loggedUser', logged, () => {
+				try {
+					alert("Loading...");
+					return navigation.navigate('Home');
+				} catch (error) {
+					return alert('Erro de login...')
+				}
+
+			});
+		}
+	}
+
 
 	return (
 

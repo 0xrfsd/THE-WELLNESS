@@ -100,21 +100,40 @@ const houses = [
 	},
 ]
 
-
 const HomeScreen = () => {
 
-	const getData = async () => {
-		try {
-		  const value = await AsyncStorage.getItem('@storage_Key')
-		  if (value) {
-			setData(value)
-			alert(value)
-		  }
-		} catch (e) {
-		  // error reading value
-		}
-	  }
-	
+	const navigation = useNavigation();
+
+	async function dataGet() {
+		const data = await AsyncStorage.getItem('loggedUser', key => {
+			try {
+				if (data !== null) {
+					return alert("Logado!");
+				}
+				return navigation.navigate('Login');
+			} catch (error) {
+				alert(error)
+			}
+		})
+		alert(`Valor data: ${data}`) /** <<<<<<<<<<<<<<<< */
+	}
+
+	dataGet();
+
+
+
+	// const getData = async () => {
+	// 	try {
+	// 	  const value = await AsyncStorage.getItem('@storage_Key')
+	// 	  if (value) {
+	// 		setData(value)
+	// 		alert(value)
+	// 	  }
+	// 	} catch (e) {
+	// 	  // error reading value
+	// 	}
+	//   }
+
 
 	// async function retrieveData() {
 	// 	try {
@@ -130,7 +149,6 @@ const HomeScreen = () => {
 
 	// retrieveData();
 
-	const navigation = useNavigation();
 	return (
 		<ScrollView>
 			<Pressable
