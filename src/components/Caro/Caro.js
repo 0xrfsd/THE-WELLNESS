@@ -4,7 +4,7 @@ import {View, Text} from 'react-native';
 
 import { SliderBox } from 'react-native-image-slider-box'; 
 
-export default class App extends Component {
+export default class Caro extends Component {
     constructor(props) {
       super(props);
       this.state = {

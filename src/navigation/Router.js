@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeTabNavigator from "./HomeTabNavigator";
 import AuthNavigator from "./AuthNavigator";
 import DestinationSearchScreen from "../screens/DestinationSearch/DestinationSearchScreen";
-import GuestsScreen from "../screens/Guests/GuestsScreen";
+import GuestsScreen from "../screens/Guests/index";
 import HouseScreen from "../screens/House/index";
 import HomeScreen from '../screens/Home/HomeScreen';
 

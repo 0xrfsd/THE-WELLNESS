@@ -107,8 +107,7 @@ const HomeScreen = () => {
 		try {
 		  const value = await AsyncStorage.getItem('@storage_Key')
 		  if (value) {
-			setData(value)
-			alert(value)
+			  alert(value)
 		  }
 		} catch (e) {
 		  // error reading value

@@ -4,8 +4,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Fontisto, FontAwesome5 } from "@expo/vector-icons";
 import HomeScreen from '../screens/Home/HomeScreen';
 import FirstScreen from '../screens/First/FirstScreen';
+import SavedScreen from '../screens/Saved/index';
+import ChatList from '../screens/Chat/chatList';
+import ChatScreen from '../screens/Chat/index';
 
 const Tab = createBottomTabNavigator();
+
 
 const HomeTabNavigator = () => {
 	return (
@@ -36,7 +40,7 @@ const HomeTabNavigator = () => {
 			/>
 			<Tab.Screen
 				name="Saved"
-				component={FirstScreen}
+				component={SavedScreen}
 				options={{
 					tabBarIcon: ({ color }) => (
 						<FontAwesome5 name="heart" size={25} color={color} />
@@ -54,7 +58,7 @@ const HomeTabNavigator = () => {
 			/>
 			<Tab.Screen
 				name="Messages"
-				component={HomeScreen}
+				component={ChatList}
 				options={{
 					tabBarIcon: ({ color }) => (
 						<FontAwesome5 name="comment" size={25} color={color} />
